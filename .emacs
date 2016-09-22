@@ -78,3 +78,7 @@
   (unless (and buffer-file-name
                (file-writable-p buffer-file-name))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
+(setq auctex-latexmk-inherit-TeX-PDF-mode t)
