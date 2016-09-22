@@ -73,12 +73,20 @@
   (add-to-list 'company-backends 'company-jedi))
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 
+;; Enable opening files in sudo mode
 (defadvice ido-find-file (after find-file-sudo activate)
   "Find file as root if necessary."
   (unless (and buffer-file-name
                (file-writable-p buffer-file-name))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
+;; Enable aucte-latexmk
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
 (setq auctex-latexmk-inherit-TeX-PDF-mode t)
+
+;; Enable yasnippet globally
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
