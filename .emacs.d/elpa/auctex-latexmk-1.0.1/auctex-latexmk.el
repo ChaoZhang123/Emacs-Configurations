@@ -4,7 +4,7 @@
 
 ;; Author: Tomoya Tanjo <ttanjo@gmail.com>
 ;; URL: https://github.com/tom-tan/auctex-latexmk/
-;; Package-Version: 1.0.0
+;; Package-Version: 1.0.1
 ;; Package-Requires: ((auctex "11.87"))
 ;; Keywords: tex
 
@@ -94,7 +94,7 @@
                '("%(-PDF)"
                  (lambda ()
                    (cond
-                    ((and (not TeX-Omega-mode)
+                    ((and (eq TeX-engine 'default)
                           TeX-PDF-mode
                           auctex-latexmk-inherit-TeX-PDF-mode)
                      "-pdf ")
