@@ -90,3 +90,6 @@
 ;;              "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
+;; Disable yasnippet in ansi-term mode to enable auto-completion
+(add-hook 'term-mode-hook (lambda()
+        (setq yas-dont-activate t)))
