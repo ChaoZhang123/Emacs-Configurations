@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: affil
+# key: affil
+# --
+\affil[$1]{$0}

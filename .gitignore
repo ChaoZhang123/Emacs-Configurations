@@ -1,10 +1,10 @@
 #exclude everything except .emacs and emacs.d
 /*
 !.emacs
+!/.emacs.d
 /.emacs.d/*
-!.emacs.d/ac-comphist.dat
-!.emacs.d/elpa/
-!.emacs.d/elpa/*
-!.emac.d/snippets/*
-!.latexmkrc
-!.gitignore
+!/.emacs.d/ac-comphist.dat
+!/.emacs.d/elpa
+!/.emacs.d/snippets
+!/.latexmkrc
+!/.gitignore
