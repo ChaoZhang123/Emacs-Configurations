@@ -8,3 +8,5 @@
 !/.emacs.d/snippets
 !/.latexmkrc
 !/.gitignore
+**/archive-contents
+**/archive-contents.signed
