@@ -10,3 +10,5 @@
 !/.gitignore
 **/archive-contents
 **/archive-contents.signed
+**~
+**.pyc
