@@ -94,3 +94,5 @@
 (add-hook 'term-mode-hook (lambda()
         (setq yas-dont-activate t)))
 
+;; Company ansible added, 10-07-2016
+(add-to-list 'company-backends 'company-ansible)
