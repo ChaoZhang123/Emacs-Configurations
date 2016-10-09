@@ -63,8 +63,9 @@
 ;;company mode is enabled globally
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; ansible doc in yaml mode
-(add-hook 'yaml-mode-hook #'ansible-doc-mode)
+;; ansibledoc in yaml mode
+;;(add-hook 'yaml-mode-hook #'ansible-doc-mode)
+(add-hook 'ansible-hook 'ansible-doc-mode)
 
 ;; Company-jedi
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -95,4 +96,10 @@
         (setq yas-dont-activate t)))
 
 ;; Company ansible added, 10-07-2016
-(add-to-list 'company-backends 'company-ansible)
+(defun my/ansible-mode-hook()
+  (company-mode +1)
+  (add-to-list 'company-backends 'company-ansible))
+(add-hook 'ansible-hook 'my/ansible-mode-hook)
+;; Add line number
+(global-linum-mode t)
+(setq linum-format "%4d \u2502 ")
