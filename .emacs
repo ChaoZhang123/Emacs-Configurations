@@ -13,6 +13,10 @@
     ("5dc0ae2d193460de979a463b907b4b2c6d2c9c4657b2e9e66b8898d2592e3de5" "98cc377af705c0f2133bb6d340bf0becd08944a588804ee655809da5d8140de6" default)))
  '(fci-rule-color "#ECEFF1")
  '(hl-sexp-background-color "#efebe9")
+ '(org-agenda-files
+   (quote
+    ("~/Documents/org/science/ega_transmart_writing.org" "~/Documents/org/website_gu.org")))
+ '(org-enforce-todo-dependencies t)
  '(python-shell-interpreter "python")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
@@ -103,3 +107,9 @@
 ;; Add line number
 (global-linum-mode t)
 (setq linum-format "%4d \u2502 ")
+
+;; Eable org global bey
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
