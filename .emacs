@@ -15,8 +15,9 @@
  '(hl-sexp-background-color "#efebe9")
  '(org-agenda-files
    (quote
-    ("~/Documents/org/science/ega_transmart_writing.org" "~/Documents/org/website_gu.org")))
+    ("~/Documents/org/science/ega_transmart_writing.org")))
  '(org-enforce-todo-dependencies t)
+ '(org-log-into-drawer t)
  '(python-shell-interpreter "python")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
