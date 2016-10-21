@@ -15,9 +15,10 @@
  '(hl-sexp-background-color "#efebe9")
  '(org-agenda-files
    (quote
-    ("~/Documents/org/science/ega_transmart_writing.org")))
+    ("~/Documents/org/science/galaxy-docker-ansible.org" "~/Documents/org/science/ega_transmart_writing.org")))
  '(org-enforce-todo-dependencies t)
  '(org-log-into-drawer t)
+ '(org-todo-keyword-faces (quote (("PENDING" . "red"))))
  '(python-shell-interpreter "python")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
