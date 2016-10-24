@@ -15,7 +15,7 @@
  '(hl-sexp-background-color "#efebe9")
  '(org-agenda-files
    (quote
-    ("~/Documents/org/science/galaxy-docker-ansible.org" "~/Documents/org/science/ega_transmart_writing.org")))
+    ("~/Documents/org/science" "~/Documents/org/meetings" "~/Documents/org/phd-tasks" "~/Documents/org/personal" "~/Documents/org/others")))
  '(org-enforce-todo-dependencies t)
  '(org-log-into-drawer t)
  '(org-todo-keyword-faces (quote (("PENDING" . "red"))))
