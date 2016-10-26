@@ -11,6 +11,7 @@
  '(custom-safe-themes
    (quote
     ("5dc0ae2d193460de979a463b907b4b2c6d2c9c4657b2e9e66b8898d2592e3de5" "98cc377af705c0f2133bb6d340bf0becd08944a588804ee655809da5d8140de6" default)))
+ '(elpy-rpc-timeout 10)
  '(fci-rule-color "#ECEFF1")
  '(hl-sexp-background-color "#efebe9")
  '(org-agenda-files
@@ -58,7 +59,7 @@
 (when (< emacs-major-version 24)
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
-
+(elpy-enable)
 ;; yamal mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
