@@ -19,7 +19,7 @@
     ("~/Documents/org/science" "~/Documents/org/meetings" "~/Documents/org/phd-tasks" "~/Documents/org/personal" "~/Documents/org/others")))
  '(org-enforce-todo-dependencies t)
  '(org-log-into-drawer t)
- '(org-todo-keyword-faces (quote (("PENDING" . "red"))))
+ '(org-todo-keyword-faces (quote (("UNDERGOING" . "yellow") ("PENDING" . "red"))))
  '(python-shell-interpreter "python")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
