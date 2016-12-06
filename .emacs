@@ -20,6 +20,9 @@
  '(org-enforce-todo-dependencies t)
  '(org-log-into-drawer t)
  '(org-todo-keyword-faces (quote (("UNDERGOING" . "yellow") ("PENDING" . "red"))))
+ '(package-selected-packages
+   (quote
+    (yaml-mode window-numbering popup neotree material-theme markdown-mode elpy company-jedi company-ansible auctex-latexmk ansible-doc ansible anaconda-mode abyss-theme)))
  '(python-shell-interpreter "python")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
@@ -116,3 +119,14 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+(add-to-list 'load-path "~/.emacs.d/diy")
+(autoload 'ttl-mode "ttl-mode" "Major mode for OWL or Turtle files" t)
+(add-hook 'ttl-mode-hook    ; Turn on font lock when in ttl mode
+          'turn-on-font-lock)
+(setq auto-mode-alist
+      (append
+       (list
+        '("\\.n3" . ttl-mode)
+        '("\\.ttl" . ttl-mode))
+       auto-mode-alist))
