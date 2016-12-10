@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Code Font Inline
-# key: ttt
-# --
-\texttt{$0}

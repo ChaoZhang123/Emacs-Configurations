@@ -1,88 +1,42 @@
+;; Support for Melpa, added on 10 Dec, 2016
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#212121" "#B71C1C" "#558b2f" "#FFA000" "#2196f3" "#4527A0" "#00796b" "#FAFAFA"))
- '(custom-enabled-themes nil)
  '(custom-safe-themes
    (quote
-    ("5dc0ae2d193460de979a463b907b4b2c6d2c9c4657b2e9e66b8898d2592e3de5" "98cc377af705c0f2133bb6d340bf0becd08944a588804ee655809da5d8140de6" default)))
- '(elpy-rpc-timeout 10)
- '(fci-rule-color "#ECEFF1")
- '(hl-sexp-background-color "#efebe9")
+    ("eb0a314ac9f75a2bf6ed53563b5d28b563eeba938f8433f6d1db781a47da1366" default)))
+ '(fci-rule-color "#3E4451")
  '(org-agenda-files
    (quote
-    ("~/Documents/org/science" "~/Documents/org/meetings" "~/Documents/org/phd-tasks" "~/Documents/org/personal" "~/Documents/org/others")))
+    ("~/Documents/org/science" "~/Documents/org/phd-tasks" "~/Documents/org/personal" "~/Documents/org/meetings" "~/Documents/org/others")))
  '(org-enforce-todo-dependencies t)
  '(org-log-into-drawer t)
  '(org-todo-keyword-faces (quote (("UNDERGOING" . "yellow") ("PENDING" . "red"))))
  '(package-selected-packages
    (quote
-    (yaml-mode window-numbering popup neotree material-theme markdown-mode elpy company-jedi company-ansible auctex-latexmk ansible-doc ansible anaconda-mode abyss-theme)))
- '(python-shell-interpreter "python")
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#B71C1C")
-     (40 . "#FF5722")
-     (60 . "#FFA000")
-     (80 . "#558b2f")
-     (100 . "#00796b")
-     (120 . "#2196f3")
-     (140 . "#4527A0")
-     (160 . "#B71C1C")
-     (180 . "#FF5722")
-     (200 . "#FFA000")
-     (220 . "#558b2f")
-     (240 . "#00796b")
-     (260 . "#2196f3")
-     (280 . "#4527A0")
-     (300 . "#B71C1C")
-     (320 . "#FF5722")
-     (340 . "#FFA000")
-     (360 . "#558b2f"))))
- '(vc-annotate-very-old-color nil)
- '(window-numbering-mode t))
+    (yasnippet company dracula-theme atom-one-dark-theme))))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
+ ;; custom-set-faces ]was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(global-font-lock-mode t)
+;; Theme, Dec.10, 2016
+;;(load-theme 'atom-one-dark t)
+(load-theme 'dracula t)
 
-;; Support for Melpa, added on 17 Sep, 2016
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize)
-(elpy-enable)
-;; yamal mode
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-
-;;(load-theme 'material t)
-(load-theme #'abyss t)
-
-;;company mode is enabled globally
+;; Enawble company mode globally
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; ansibledoc in yaml mode
-;;(add-hook 'yaml-mode-hook #'ansible-doc-mode)
-(add-hook 'ansible-hook 'ansible-doc-mode)
-
-;; Company-jedi
-(add-hook 'python-mode-hook 'jedi:setup)
-(defun my/python-mode-hook ()
-  (company-mode +1) ;;if globally enabled, it is not needed
-  (add-to-list 'company-backends 'company-jedi))
-(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 ;; Enable opening files in sudo mode
 (defadvice ido-find-file (after find-file-sudo activate)
@@ -91,42 +45,15 @@
                (file-writable-p buffer-file-name))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
-;; Enable aucte-latexmk
-(require 'auctex-latexmk)
-(auctex-latexmk-setup)
-(setq auctex-latexmk-inherit-TeX-PDF-mode t)
-
 ;; Enable yasnippet globally
-;;(add-to-list 'load-path
-;;              "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
 ;; Disable yasnippet in ansi-term mode to enable auto-completion
 (add-hook 'term-mode-hook (lambda()
         (setq yas-dont-activate t)))
 
-;; Company ansible added, 10-07-2016
-(defun my/ansible-mode-hook()
-  (company-mode +1)
-  (add-to-list 'company-backends 'company-ansible))
-(add-hook 'ansible-hook 'my/ansible-mode-hook)
-;; Add line number
-(global-linum-mode t)
-(setq linum-format "%4d \u2502 ")
-
 ;; Eable org global bey
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-
-(add-to-list 'load-path "~/.emacs.d/diy")
-(autoload 'ttl-mode "ttl-mode" "Major mode for OWL or Turtle files" t)
-(add-hook 'ttl-mode-hook    ; Turn on font lock when in ttl mode
-          'turn-on-font-lock)
-(setq auto-mode-alist
-      (append
-       (list
-        '("\\.n3" . ttl-mode)
-        '("\\.ttl" . ttl-mode))
-       auto-mode-alist))
