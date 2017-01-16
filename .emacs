@@ -23,7 +23,7 @@
  '(org-todo-keyword-faces (quote (("UNDERGOING" . "yellow") ("PENDING" . "red"))))
  '(package-selected-packages
    (quote
-    (auctex-latexmk auctex yasnippet company dracula-theme atom-one-dark-theme))))
+    (yaml-mode auctex-latexmk auctex yasnippet company dracula-theme atom-one-dark-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -62,3 +62,6 @@
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
 (setq auctex-latexmk-inherit-TeX-PDF-mode t)
+
+(require 'yaml-mode)
+   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
