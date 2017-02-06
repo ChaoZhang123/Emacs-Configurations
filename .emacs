@@ -23,7 +23,7 @@
  '(org-todo-keyword-faces (quote (("UNDERGOING" . "yellow") ("PENDING" . "red"))))
  '(package-selected-packages
    (quote
-    (yaml-mode auctex-latexmk auctex yasnippet company dracula-theme atom-one-dark-theme))))
+    (markdown-mode dockerfile-mode yaml-mode auctex-latexmk auctex yasnippet company dracula-theme atom-one-dark-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -65,3 +65,15 @@
 
 (require 'yaml-mode)
    (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
+(autoload 'markdown-mode "markdown-mode"
+       "Major mode for editing Markdown files" t)
+    (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+    (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+    (autoload 'gfm-mode "markdown-mode"
+       "Major mode for editing GitHub Flavored Markdown files" t)
+    (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
