@@ -1,7 +1,10 @@
 ;; Support for Melpa, added on 10 Dec, 2016
 (require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+(package-initialize)
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -23,7 +26,7 @@
  '(org-todo-keyword-faces (quote (("UNDERGOING" . "yellow") ("PENDING" . "red"))))
  '(package-selected-packages
    (quote
-    (markdown-mode dockerfile-mode yaml-mode auctex-latexmk auctex yasnippet company dracula-theme atom-one-dark-theme))))
+    (org markdown-mode dockerfile-mode yaml-mode auctex-latexmk auctex yasnippet company dracula-theme atom-one-dark-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
