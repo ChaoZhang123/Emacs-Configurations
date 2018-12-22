@@ -20,7 +20,7 @@
  '(fci-rule-color "#3E4451")
  '(org-agenda-files
    (quote
-    ("~/Documents/org/science" "~/Documents/org/phd-tasks" "~/Documents/org/personal" "~/Documents/org/meetings" "~/Documents/org/others")))
+    ("~/Documents/org/science" "~/Documents/org/phd-tasks" "~/Documents/org/personal" "~/Documents/org/meetings" "~/Documents/org/others" "~/Documents/org/mindiverse")))
  '(org-enforce-todo-dependencies t)
  '(org-log-into-drawer t)
  '(org-todo-keyword-faces (quote (("UNDERGOING" . "yellow") ("PENDING" . "red"))))
